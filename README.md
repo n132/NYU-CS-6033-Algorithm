@@ -8,7 +8,7 @@ Too easy to write something for it.
 
 # Lecture 2
 
-Heap/Priority Queue !(Implementation)[./Lec2.py]
+Heap/Priority Queue [Implementation](./Lec2.py)
 - Primitives
   - HEAPIFY: `O(log(n))`
   - PARENT: `O(1)`
