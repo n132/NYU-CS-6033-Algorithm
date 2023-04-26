@@ -1,4 +1,3 @@
-import math
 input_matrix  =  [30,1,40,10,25]
 def matrix_chain_multiplication(A):
     n  = len(A)-1
