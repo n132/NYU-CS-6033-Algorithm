@@ -1,8 +1,4 @@
 import math
-class node(object):
-    def __init__(self,l=None,r=None) -> None:
-        self.left  = l
-        self.right = r
 class MAX_HEAP(object):
     def __init__(self,data = []) -> None:
         self.tree = data
