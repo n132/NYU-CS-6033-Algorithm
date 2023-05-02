@@ -113,7 +113,6 @@ class PQ():
         return 
     
 def dijkstra(G,s):
-    # init the queue
     Q = PQ([])
     for x in G.v:
         if x == s:
@@ -121,14 +120,9 @@ def dijkstra(G,s):
         else:
             Q.INSERT(math.inf,x,None)
     res = []
-    # print(Q.tree)
     while len(Q.tree)!=0:
-        # for x in range(len(Q.tree)):
-            # print(Q.tree[x].key,Q.tree[x].note)
-        # print("="*0x10)
         u = Q.EXTRACT_MIN()
         res.append(u)
-        # print(u.note)
         for v in G.adj[u.note]:
             tmp = Q.FIND(v)
             if tmp == None:
@@ -137,8 +131,7 @@ def dijkstra(G,s):
                 Q.DECREASE_KEY_by_Note(v,G.W([u.note,v])+u.key,u.note)
 
     return res
-    # Q = PQ([5,2,3])
-    # print(Q.tree)
+
 if __name__ == "__main__":
     G = GRAPH(["A","B","C","D","E"],[
         ["A","B",1],["A","D",2],["B","E",4],
