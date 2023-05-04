@@ -23,28 +23,22 @@ def DP(G):
     # init the map
     # l[len(G.e)][len(G.v)][len(G.v)]
     lv = len(G.v)
-    D = [[[ math.inf for _ in range(lv)] for __ in range(lv)] for ___ in range(lv+1)]
+    D = [[ math.inf for _ in range(lv)] for __ in range(lv)]
     for _ in range(lv):
         for __ in range(lv):
-            D[0][_][__] = G.w[_][__]
+            D[_][__] = G.w[_][__]
 
     # Start the main loop
     for v in range(1,lv+1): # L[e]
         for n in range(lv): # edge n
             for m in range(lv):
-                D[v][n][m] = min(D[v-1][n][v-1] + D[v-1][v-1][m],D[v-1][n][m])
+                D[n][m] = min(D[n][v-1] + D[v-1][m],D[n][m])
     return D
 if __name__ == "__main__":
     G = GRAPH(["1","2","3","4","5"],[
         ["1","2",3],["1","3",8],["1","5",-4],
         ["2","4",1],["2","5",7],["3","2",4],
         ["4","1",2],["4","3",-5],["5","4",6],])
-    # G = GRAPH(["1","2","3","4","5","6"],[
-    #     ["1","5",-1],["2","1",1],["2","4",2],
-    #     ["3","2",2],["3","6",-8],["4","1",-4],
-    #     ["4","5",3],["5","2",7],["6","2",5],["6","3",10]])
     res = DP(G)
-    for x in res[-1:]:
-        for l in x:
-            print(l)
-        print("="*0x10)
+    for x in res:
+        print(x)
