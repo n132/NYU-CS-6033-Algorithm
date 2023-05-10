@@ -30,6 +30,7 @@ def ith_item(A,i):
         else:
             return A[k]
 def RANDMIZED_SELECT(A,l,r,i):
+    # O()
     q = RANDOM_PARTITION(A,l,r)
     k = q-l+1
     if k==i:
